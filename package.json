@@ -1,12 +1,17 @@
 {
-	"name": "testtransform",
+	"name": "tailwindcss-multiple-classes",
 	"version": "1.0.0",
 	"main": "index.mjs",
 	"scripts": {
 		"start": "node ./index.mjs",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
-	"author": "",
+	"author": "MrOxmAsTer",
 	"license": "ISC",
-	"description": ""
+	"description": "Separation of several classes Tailwindcss",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/MrOxMasTer/tailwindcss-multiple-classes.git"
+	},
+	"homepage": "https://github.com/MrOxMasTer/tailwindcss-multiple-classes"
 }
