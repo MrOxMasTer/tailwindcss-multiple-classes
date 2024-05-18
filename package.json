@@ -1,5 +1,5 @@
 {
-	"name": "tailwindcss-multiple-classes",
+	"name": "@mroxmaster/tailwindcss-multiple-classes",
 	"version": "1.0.0",
 	"main": "index.mjs",
 	"scripts": {
@@ -8,7 +8,7 @@
 	},
 	"author": "MrOxmAsTer",
 	"license": "ISC",
-	"description": "Separation of several classes Tailwindcss",
+	"description": "adding new functionality - merged pseudo-classes and pseudo-elements",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/MrOxMasTer/tailwindcss-multiple-classes.git"
