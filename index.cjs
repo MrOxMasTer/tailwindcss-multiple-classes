@@ -31,7 +31,7 @@ const createTransform = ({ separator, opBracket, clBracket } = {}) => {
 		});
 	};
 
-	return (content = '') => findPseudo(content, regExp, opts);
+	return (content = '') => findPseudo(content);
 };
 
 module.exports = createTransform;
