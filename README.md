@@ -68,7 +68,7 @@ const config = {
 ```javascript
   webpack: (config, options) => {
     config.module.rules.push({
-      test: /\.tsx/,
+      test: /\.jsx/,
       use: path.resolve('./transformMultipleClasses.js'),
     });
 
