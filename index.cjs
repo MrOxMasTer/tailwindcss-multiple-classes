@@ -13,8 +13,6 @@ const createTransform = ({ separator, opBracket, clBracket } = {}) => {
 	opBracket && (opts.opBracket = opBracket);
 	clBracket && (opts.clBracket = clBracket);
 
-	console.log(regExp);
-
 	if (opBracket || clBracket) {
 		regExp = new RegExp(`(?:(^|[\"\'\`]|\\s))((\\w+?):\\${opts.opBracket}(.+)\\${opts.clBracket})(?:([\"\'\`]|\\s|$))`, 'g');
 	}
