@@ -28,7 +28,7 @@
 Installation depending on the developer
 
 ```
-npm install --save-dev tailwind-group-variant
+npm install --save-dev tailwindcss-multiple-classes
 ```
 
 Creating a function and exporting it:
