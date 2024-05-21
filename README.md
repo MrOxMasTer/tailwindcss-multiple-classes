@@ -20,10 +20,18 @@
 
 [Installation](#installation)
 
-- [Webpack/next.js](#webpack-nextjs)
+- [Webpack/next.js](#webpack/next.js)
 - [PostCSS](#postCSS)
 
 ## Installation
+
+Installation depending on the developer
+
+```
+npm install --save-dev tailwind-group-variant
+```
+
+Creating a function and exporting it:
 
 ```javascript
 // transformMultipleClasses.js
@@ -33,6 +41,8 @@ const transformMultipleClasses = createTransform({ separator: ',', opBracket: '(
 
 export default transformMultipleClasses;
 ```
+
+Adding to the tailwindcss configuration:
 
 ```javascript
 //tailwindcss.config.js
