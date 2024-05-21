@@ -13,9 +13,10 @@ const createTransform = ({ separator, opBracket, clBracket } = {}) => {
 	opBracket && (opts.opBracket = opBracket);
 	clBracket && (opts.clBracket = clBracket);
 
-	if (opBracket || clBracket) {
-		regExp = new RegExp(`(?:(^|[\"\'\`]|\\s))((\\w+?):\\${opts.opBracket}(.+)\\${opts.clBracket})(?:([\"\'\`]|\\s|$))`, 'g');
-	}
+	regExp = new RegExp(
+		`(?:(^|[\"\'\`\\${separator}]|\\s))((\\w+?):\\${opts.opBracket}(.+)\\${opts.clBracket})(?:([\"\'\`\\${separator}]|\\s|$))`,
+		'g'
+	);
 
 	const splitClasses = (content = '') => findPseudo(content).split(opts.separator);
 
