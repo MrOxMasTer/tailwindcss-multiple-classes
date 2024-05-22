@@ -1,5 +1,5 @@
 <div align="center">
-<h1>tailwind-multiple-classes</h1>
+<h1>tailwindcss-multiple-classes</h1>
 
 <p>Defining several classes at once for one variant</p>
 </div>
