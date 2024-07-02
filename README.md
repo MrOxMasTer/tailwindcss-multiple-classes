@@ -15,7 +15,7 @@
 ## The problem
 
 1.  With the separator: `SPACE`. (more precisely in prettier-plugin-tailwindcss)
-2.  The problem with auto-completion (is not displayed) (tailwindcss intelliSense)
+2.  The problem with auto-completion (is not displayed) (tailwindcss intelliSense) (you can solve it in the settings using: "tailwindCSS.experimental.classRegex")
 3.  Strange formatting of user classes - puts all classes at the beginning. But as I realized, this problem is solved https://github.com/tailwindlabs/prettier-plugin-tailwindcss/issues/228
 
 [Installation](#installation)
