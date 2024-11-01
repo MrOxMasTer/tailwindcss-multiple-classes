@@ -12,9 +12,71 @@
 2. support for nested variants
 3. There is a postCSS plugin to support css files
 
-## The problem
+## Demonstration
 
-1.  With the separator: `SPACE`. (more precisely in prettier-plugin-tailwindcss)
+### jsx
+
+#### Example 1 { separator = "," }:
+One of the proposed syntaxes in X, which is voted for the most:
+https://x.com/adamwathan/status/1849509712368226792
+
+`Before:`
+
+```jsx
+const Main = () => {
+	return <main className="flex mm:bg-red,text-green,hover:text-3xl">...</main>;
+};
+```
+
+`After:`
+
+```jsx
+const Main = () => {
+	return <main className="flex mm:bg-red mm:text-green mm:hover:text-3xl ">...</main>;
+};
+```
+
+#### Example 2 { separator = ",", opBracket = "(", clBracket = ")" }:
+
+```jsx
+const Main = () => {
+	return <main className="flex mm:(bg-red,text-green,hover:(text-3xl))">...</main>;
+};
+```
+
+`After:`
+
+```jsx
+const Main = () => {
+	return <main className="flex mm:bg-red mm:text-green mm:hover:text-3xl ">...</main>;
+};
+```
+
+### css
+
+`IMPORTANT`: You need to connect the PostCSS plugin
+
+`Before:`
+
+```css
+.class {
+	@apply mm:(bg-red,text-green);
+}
+```
+
+`After:`
+
+```css
+.class {
+	@apply mm:bg-red mm:text-green;
+}
+```
+
+## Remark
+
+1. Using `SPACE` for `separator` will result in an error. This is done for several reasons:
+  - more precisely in prettier-plugin-tailwindcss
+  - One of the posts in X by the creator of `tailwindcss`, talked about how incompatible this syntax is with different templates (like unoCSS)
 2.  The problem with auto-completion (is not displayed) (tailwindcss intelliSense) (you can solve it in the settings using: "tailwindCSS.experimental.classRegex")
 3.  Strange formatting of user classes - puts all classes at the beginning. But as I realized, this problem is solved https://github.com/tailwindlabs/prettier-plugin-tailwindcss/issues/228
 
@@ -82,42 +144,3 @@ const config = {
 
 https://github.com/MrOxMasTer/postcss-tailwindcss-multiple-classes
 
-## Demonstration
-
-### jsx
-
-`Before:`
-
-```jsx
-const Main = () => {
-	return <main className="flex mm:(bg-red,text-green,hover:(text-3xl))">...</main>;
-};
-```
-
-`After:`
-
-```jsx
-const Main = () => {
-	return <main className="flex mm:bg-red mm:text-green mm:hover:text-3xl ">...</main>;
-};
-```
-
-### css
-
-`IMPORTANT`: You need to connect the PostCSS plugin
-
-`Before:`
-
-```css
-.class {
-	@apply mm:(bg-red,text-green);
-}
-```
-
-`After:`
-
-```css
-.class {
-	@apply mm:bg-red mm:text-green;
-}
-```
