@@ -11,6 +11,6 @@ const expand = createTransform({
 // };`;
 
 const str = `const main = () => {
-	return <main className="flex supports-[not(**)]:min-height-[10.1px]:h-10,sm:h-20,md:h-30,lg:h-40,xl:h-50,hover:(pl-4,py-3) pl-3">...</main>;};`;
+	return <main className="flex supports-[not(container-type:inline-size)]:min-height-[10px]:h-10,sm:h-20,md:h-30,lg:h-40,xl:h-50,hover:(pl-4,py-3) pl-3">...</main>;};`;
 
 console.log(expand(str));

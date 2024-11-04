@@ -143,5 +143,5 @@ const config = {
 
 ### PostCSS
 
-https://github.com/MrOxMasTer/postcss-tailwindcss-multiple-classes
+https://www.npmjs.com/package/postcss-tailwindcss-multiple-classes
 

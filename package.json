@@ -1,6 +1,6 @@
 {
 	"name": "tailwindcss-multiple-classes",
-	"version": "1.0.4-beta",
+	"version": "1.0.4",
 	"type": "commonjs",
 	"main": "index.cjs",
 	"scripts": {
@@ -8,6 +8,14 @@
 		"test2": "node --inspect ./index.test.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
+	"keywords": [
+		"tailwind",
+		"tailwindcss",
+		"tailwindcss-multiple-classes",
+		"grouping classes",
+		"grouping variants together",
+		"multiple classes"
+	],
 	"author": "MrOxmAsTer",
 	"license": "ISC",
 	"description": "adding new functionality - merged pseudo-classes and pseudo-elements",
