@@ -1,8 +1,3 @@
-// const regExp = /(?:(^|["'`]|\s))((\w+?):\((.+)\))(?:(["'`]|\s|$))/g;
-// /(?:([\"\'\`\s]|\s))(?<left>([\w\(\)\[\]\-\:]+)):(?<right>([\w\(\)\[\]\-\:]+\,)*([\w\(\)\[\]\-\:]+\,?)+?)(?:([\"\'\`\s]))/g;
-// 	/(?:([\"\'\`\s]))(?<left>[^\s,<>]+):(?<right>([^\s,<>]+\,)*[^\s,<>]+)(?:([\"\'\`\s]))/g;
-//  /(?<left>[^\s,<>"'`]+):(?<right>([^\s,<>"'`]+\,?)+)/g;
-
 const split = (
 	classes = "",
 	{ separator = ",", opBracket = "", clBracket = "" } = {},
@@ -64,78 +59,8 @@ const createTransform = ({
 
 	const separatorRegExp = `\\${separator}`;
 
-	//! First chance:
-
-	// const regExp =
-	// 	/(?:([\"\'\`\s]))(?<left>[^\s,<>]+):(?<right>([^\s,<>]+\,)*[^\s,<>]+)(?:([\"\'\`\s]))/g;
-
-	// const splitClasses = (content = "") => findPseudo(content).split(separator);
-
-	// const findPseudo = (content = "") => {
-	// 	return content.replaceAll(
-	// 		regExp,
-	// 		(match, p1, p2, p3, p4, p5, p6, p7, groups, p9) => {
-	// 			const classes = groups.right.trim();
-	// 			const arrClasses = splitClasses(classes);
-
-	// 			const transformClasses = arrClasses.map(
-	// 				(item) => `${groups.left}:${item}`,
-	// 			);
-	// 			const strClasses = transformClasses.join(" ");
-
-	// 			return p1 + strClasses + p5;
-	// 		},
-	// 	);
-	// };
-
-	//! Second chance:
-	// const regExp = new RegExp(
-	// 	`(?<left>[^\\s,<>\"\'\`]+):(?<right>([^\\s,<>\"\'\`]+${separatorRegExp}?)+)`,
-	// 	"g",
-	// );
-
-	// const findPseudo = (content = "") => {
-	// 	return content.replaceAll(regExp, (match, p1, p2, p3, p4, p5, groups) => {
-	// 		const classes = groups.right.trim();
-	// 		const arrClasses = classes.split(separator).map((str) => findPseudo(str));
-
-	// 		const transformClasses = arrClasses.map(
-	// 			(item) => `${groups.left}:${item}`,
-	// 		);
-	// 		const strClasses = transformClasses.join(" ");
-
-	// 		return strClasses;
-	// 	});
-	// };
-
-	//! Thirty chance:
-	// const regExp = new RegExp(
-	// 	`(?<left>[^\\s,<>\"\'\`]+):${opBracketRegExp}(?<right>([^\\s,<>\"\'\`]+${separatorRegExp}?)+)${clBracketRegExp}`,
-	// 	"g",
-	// );
-
-	// const findPseudo = (content = "") => {
-	// 	return content.replaceAll(regExp, (match, p1, p2, p3, p4, p5, groups) => {
-	// 		const classes = groups.right.trim();
-
-	// 		const arrClasses1 = findPseudo(classes);
-	// 		const arrClasses2 = arrClasses1.split(separator);
-	// 		const arrClasses3 = arrClasses2.map((item) => item.split(" "));
-	// 		const arrClasses = arrClasses3.flat(Number.POSITIVE_INFINITY);
-
-	// 		const transformClasses = arrClasses.map(
-	// 			(item) => `${groups.left}:${item}`,
-	// 		);
-	// 		const strClasses = transformClasses.join(" ");
-
-	// 		return strClasses;
-	// 	});
-	// };
-
-	//! fourth chance:
-
 	const regExp = new RegExp(
-		`(?<left>[^\\s,<>\"\'\`]+):((${opBracketRegExp}(?<rightOne>([^\\s,<>\"\'\`]+${separatorRegExp}?)+)${clBracketRegExp})|(?<rightTwo>([^\\s,<>\"\'\`]+${separatorRegExp}?)+))`,
+		`(?<left>[^\\s${separatorRegExp}<>\"\'\`]+):((${opBracketRegExp}(?<rightOne>([^\\s${separatorRegExp}<>\"\'\`]+${separatorRegExp}?)+)${clBracketRegExp})|(?<rightTwo>([^\\s${separatorRegExp}<>\"\'\`]+${separatorRegExp}?)+))`,
 		"g",
 	);
 

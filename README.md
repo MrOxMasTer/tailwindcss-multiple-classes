@@ -12,13 +12,16 @@
 2. support for nested variants
 3. There is a postCSS plugin to support css files
 
+??? Possible future support for `vite`
+
+[Why are other similar plugins not suitable for me?](https://github.com/tailwindlabs/tailwindcss/discussions/11701#discussioncomment-9314628)
+
 ## Demonstration
 
 ### jsx
 
 #### Example 1 { separator = "," }:
-One of the proposed syntaxes in X, which is voted for the most:
-https://x.com/adamwathan/status/1849509712368226792
+[One of the proposed syntaxes in X, which is voted for the most](https://x.com/adamwathan/status/1849509712368226792)
 
 `Before:`
 
@@ -39,19 +42,16 @@ const Main = () => {
 #### Example 2 { separator = ",", opBracket = "(", clBracket = ")" }:
 
 ```jsx
-const Main = () => {
-	return <main className="flex mm:(bg-red,text-green,hover:(text-3xl))">...</main>;
-};
+const main = () => {
+  return <main className="flex supports-[not(**)]:min-height-[10.1px]:h-10,sm:h-20,md:h-30, lg:h-40,xl:h-50,hover:(pl-4,py-3) pl-3">...</main>;};
 ```
 
 `After:`
 
 ```jsx
-const Main = () => {
-	return <main className="flex mm:bg-red mm:text-green mm:hover:text-3xl ">...</main>;
-};
+const main = () => {
+        return <main className="flex supports-[not(**)]:min-height-[10.1px]:h-10 supports-[not(**)]:min-height-[10.1px]:sm:h-20 supports-[not(**)]:min-height-[10.1px]:md:h-30 supports-[not(**)]:min-height-[10.1px]:lg:h-40 supports-[not(**)]:min-height-[10.1px]:xl:h-50 supports-[not(**)]:min-height-[10.1px]:hover:pl-4 supports-[not(**)]:min-height-[10.1px]:hover:py-3 pl-3">...</main>;};
 ```
-
 ### css
 
 `IMPORTANT`: You need to connect the PostCSS plugin
@@ -60,7 +60,7 @@ const Main = () => {
 
 ```css
 .class {
-	@apply mm:(bg-red,text-green);
+	@apply mm:bg-red,text-green;
 }
 ```
 
@@ -84,6 +84,7 @@ const Main = () => {
 
 - [Webpack/next.js](#webpack/next.js)
 - [PostCSS](#postCSS)
+- vite?
 
 ## Installation
 
