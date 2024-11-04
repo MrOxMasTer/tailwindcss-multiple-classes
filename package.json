@@ -1,6 +1,6 @@
 {
 	"name": "tailwindcss-multiple-classes",
-	"version": "1.0.3",
+	"version": "1.0.4-beta",
 	"type": "commonjs",
 	"main": "index.cjs",
 	"scripts": {
