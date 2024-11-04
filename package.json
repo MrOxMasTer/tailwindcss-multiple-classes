@@ -5,7 +5,7 @@
 	"main": "index.cjs",
 	"scripts": {
 		"start": "node ./index.cjs",
-		"test2": "node --inspect ./index.test.js",
+		"debug": "node --inspect ./index.test.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"keywords": [

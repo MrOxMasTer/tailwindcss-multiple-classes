@@ -64,6 +64,9 @@ const createTransform = ({
 		"g",
 	);
 
+	//? FIXME: symbol ";" in CSS (perhaps not only that)
+	// FIXME: ,p={key:!0,ref:!0,__self:!0,__source:!0};
+	// FIXME: add \s (and separator?) in before <left> and after <right>?
 	const findPseudo = (content = "") => {
 		return content.replaceAll(
 			regExp,

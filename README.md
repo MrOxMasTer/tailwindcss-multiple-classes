@@ -11,8 +11,7 @@
 1. options for defining your separator, and brackets
 2. support for nested variants
 3. There is a postCSS plugin to support css files
-
-??? Possible future support for `vite`
+4. support for Vite
 
 ## Reference
 
@@ -85,11 +84,11 @@ const main = () => {
 
 ## Installation
 
-- [Webpack/next.js](#webpack/next.js)
+- [Webpack/next.js](#webpacknextjs)
 - [PostCSS](#postCSS)
-- vite?
+- [Vite](#viterollup)
 
-Installation depending on the developer
+### Webpack/next.js
 
 ```
 npm install --save-dev tailwindcss-multiple-classes
@@ -105,6 +104,20 @@ const transformMultipleClasses = createTransform({ separator: ',', opBracket: '(
 
 export default transformMultipleClasses;
 ```
+
+```javascript
+  webpack: (config, options) => {
+    config.module.rules.push({
+      test: /\.jsx/,
+      use: path.resolve('./transformMultipleClasses.js'),
+    });
+
+    return config;
+  },
+```
+
+`IMPORTANT`: use javascript to support webpack
+`IMPORTANT`: Often, everything ends with the conversion of files, but if you have any problems, try to use this:
 
 Adding to the tailwindcss configuration:
 
@@ -126,23 +139,32 @@ const config = {
 ```
 
 `IMPORTANT`: This setting is necessary for tailwindcss to understand what classes it needs to generate in a CSS file, but it does not work as a compiler for files. Details: https://github.com/tailwindlabs/tailwindcss/issues/13705#event-12857014225
-
-### Webpack/next.js
-
-```javascript
-  webpack: (config, options) => {
-    config.module.rules.push({
-      test: /\.jsx/,
-      use: path.resolve('./transformMultipleClasses.js'),
-    });
-
-    return config;
-  },
-```
-
-`IMPORTANT`: use javascript to support webpack
+`IMPORTANT`: You may need it for `Vite/Rollup`, but if it works without it, then you don't need it
 
 ### PostCSS
 
 https://www.npmjs.com/package/postcss-tailwindcss-multiple-classes
+
+### Vite/Rollup
+
+https://www.npmjs.com/package/rollup-plugin-tailwindcss-multiple-classes
+
+Support Vite / Rollup
+
+```
+npm install --save-dev rollup-plugin-tailwindcss-multiple-classes
+```
+
+`IMPORTANT`: I advise you to install the plugin itself and the plugin for PostCSS for vite. If there is any error, install content.transform (in the installation section in webpack/next.js )
+
+```javascript
+// vite.config.js
+import tailwindMultipleClasses from "rollup-plugin-tailwindcss-multiple-classes";
+
+export default defineConfig({
+	plugins: [tailwindMultipleClasses({ separator: ",", opBracket: "(", clBracket: ")" }), react()],
+});
+```
+`IMPORTANT`: This plugin ignores all files in `node_modules`, as well as all CSS files and its derivatives. PostCSS is used for this
+`IMPORTANT`: If you have any problems, try to rearrange this plugin and the 'react` plugin
 
