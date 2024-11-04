@@ -14,7 +14,10 @@
 
 ??? Possible future support for `vite`
 
-[Why are other similar plugins not suitable for me?](https://github.com/tailwindlabs/tailwindcss/discussions/11701#discussioncomment-9314628)
+## Reference
+
+- [Why are other similar plugins not suitable for me?](https://github.com/tailwindlabs/tailwindcss/discussions/11701#discussioncomment-9314628)
+- [Installation](#installation)
 
 ## Demonstration
 
@@ -80,13 +83,11 @@ const main = () => {
 2.  The problem with auto-completion (is not displayed) (tailwindcss intelliSense) (you can solve it in the settings using: "tailwindCSS.experimental.classRegex")
 3.  Strange formatting of user classes - puts all classes at the beginning. But as I realized, this problem is solved https://github.com/tailwindlabs/prettier-plugin-tailwindcss/issues/228
 
-[Installation](#installation)
+## Installation
 
 - [Webpack/next.js](#webpack/next.js)
 - [PostCSS](#postCSS)
 - vite?
-
-## Installation
 
 Installation depending on the developer
 
